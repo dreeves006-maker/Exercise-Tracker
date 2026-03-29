@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Workout Tracker</title>
+  <style>
+    body { font-family: Arial; background:#ffe4ec; padding:20px; }
+    h1 { color:#db2777; }
+    .superset { background:white; padding:15px; margin-bottom:15px; border-radius:10px; }
+    .row { display:flex; gap:10px; }
+    .exercise { flex:1; background:#fff0f5; padding:10px; border-radius:10px; }
+    input { width:100%; margin-top:5px; padding:5px; }
+  </style>
+</head>
+<body>
 
+<h1>Workout Tracker</h1>
+
+<div id="app"></div>
+
+<script>
+const app = document.getElementById("app");
+
+for(let i=1;i<=4;i++){
+  const superset = document.createElement("div");
+  superset.className = "superset";
+  superset.innerHTML = "<h3>Superset "+i+"</h3>";
+
+  const row = document.createElement("div");
+  row.className = "row";
+
+  for(let j=1;j<=2;j++){
+    const ex = document.createElement("div");
+    ex.className = "exercise";
+    ex.innerHTML = `
+      <strong>Exercise ${j}</strong><br>
+      Weight <input type="number"><br>
+      Reps 1 <input type="number"><br>
+      Reps 2 <input type="number"><br>
+      Reps 3 <input type="number">
+    `;
+    row.appendChild(ex);
+  }
+
+  superset.appendChild(row);
+  app.appendChild(superset);
+}
+</script>
+
+</body>
+</html>
